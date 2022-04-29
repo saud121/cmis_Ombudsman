@@ -16,12 +16,20 @@ class Constants_english {
   static const String Suggestedate="Suggested Date: ";
   static const String ComposeNewComplain="Compose New Complain ";
   static const String ComposeNote ="Note: Please attach following otherwise your compliant wont be submited ";
-  static const String Reliventinfo ="1: Please don't upload irrelevant data and be specific to complain";
-  static const String AttachCninc ="2: Please attach your CNIC";
+  static const String Reliventinfo ="Please don't upload irrelevant data and be specific to complain";
+  static const String AttachCninc ="Please attach your CNIC";
   static const String AttachThumb ="3: Please attach Thumb Picture";
   static const String Attachevidenve ="4: Please attach Evidence";
-  static const String AttachAudio ="5: (Optional) Kindly cast audio if your are having trouble typing complain";
+  static const String AttachAudio ="Kindly cast audio if your are having trouble typing complain";
   static const String Evidences ="Evidences";
+  static const String complainantName ="Complainant name";
+  static const String accuseName ="Accuse name";
+  static const String departmentname ="Complainant Department name";
+  static const String accusedepartmentname ="Accuse Department name";
+  static const String designation ="Complainant Designation";
+  static const String accusedesignation ="Accuse Designation";
+  static const String CNIC ="Complainant Cnic";
+  static const String accuseCNIC ="Accuse Cnic";
 
 
 

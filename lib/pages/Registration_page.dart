@@ -128,37 +128,39 @@ class SignUpState extends State{
       resizeToAvoidBottomInset : false,
       appBar: AppBar(title: Text("Signup Form")),
       key: scaffoldKey,
-      body: Center(
-        child: Container(
-          color: Colors.white,
-          child: Padding(
-            padding: const EdgeInsets.all(36.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image(image:AssetImage( 'assets/images/signup.png'),height:120,),
-                Text("Registration Form",style: TextStyle(color:Colors.red)),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Container(
+            color: Colors.white,
+            child: Padding(
+              padding: const EdgeInsets.all(36.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image(image:AssetImage( 'assets/images/signup.png'),height:120,),
+                  Text("Registration Form",style: TextStyle(color:Colors.red)),
 
-                SizedBox(height: 45.0),
-                emailField,
+                  SizedBox(height: 45.0),
+                  emailField,
 
-                SizedBox(height: 25.0),
-                name,
-                SizedBox(height: 25.0),
-                cnic,
+                  SizedBox(height: 25.0),
+                  name,
+                  SizedBox(height: 25.0),
+                  cnic,
 
-                SizedBox(height: 25.0),
-                mobile,
+                  SizedBox(height: 25.0),
+                  mobile,
 
-                SizedBox(height: 25.0),
-                passwordField,
+                  SizedBox(height: 25.0),
+                  passwordField,
 
-                SizedBox(height: 35.0,),
-                loginButon,
-                SizedBox(height: 15.0,),
+                  SizedBox(height: 35.0,),
+                  loginButon,
+                  SizedBox(height: 15.0,),
 
-              ],),),),),);
+                ],),),),),
+      ),);
 
   }
 }

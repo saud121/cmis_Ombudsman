@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../soundRecorderPlayer/sound_player.dart';
 import '../soundRecorderPlayer/sound_recorder.dart';
+import 'ComposeComplainFirstPage.dart';
 
 class recordPage extends StatefulWidget {
   const recordPage({Key key}) : super(key: key);
@@ -113,8 +114,7 @@ class _recordPageState extends State<recordPage> {
             ),
              FloatingActionButton.extended(
               onPressed: () {
-                Navigator.pop(context);
-                print("safak");
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => ComplainFirstPage()));
               },
               icon:Icon(Icons.record_voice_over, color: Colors.white, size: 29,),
               label: Text("Submit Recording"),

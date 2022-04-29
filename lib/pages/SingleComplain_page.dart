@@ -1,10 +1,12 @@
 import 'package:cmis/Constants/Costants_english.dart';
 import 'package:cmis/Constants/Globals.dart';
 import 'package:cmis/widgets/ContainerForComplains.dart';
+import 'package:cmis/widgets/ContainerForEventComplaints.dart';
 import 'package:cmis/widgets/ContainerForTreeComplaint.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:toggle_switch/toggle_switch.dart';
 import 'dart:convert';
 
 class SingleComplain extends StatefulWidget {
@@ -16,6 +18,7 @@ class SingleComplain extends StatefulWidget {
 }
 
 class _SingleComplainState extends State<SingleComplain> {
+  int selectedIndex = 0 ;
   Future<List<SingleComplaiInfo>> _getComplaindata() async {
 
     var data = await http.get(Uri.parse(Constant_api.ApiForComplains));
@@ -108,12 +111,54 @@ class _SingleComplainState extends State<SingleComplain> {
            body: SingleChildScrollView(
              child: Column(
                children: [
+                 Center(
+                   child: Container(
+                     padding: EdgeInsets.all(2.0),
+                     color: Colors.grey[300],
+                     child: Row(
+                       crossAxisAlignment: CrossAxisAlignment.center,
+                       mainAxisAlignment: MainAxisAlignment.center,
+                       children: <Widget>[
+                         RaisedButton(
+                           child: Text('Complain Timeline'),
+                           textColor: Colors.white,
+                           color: selectedIndex == 0 ? Colors.blueAccent : Colors.grey,
+                           onPressed: (){
+                             setState(() {
+                               selectedIndex = 0 ;
+                             });
+                           },
+                         ),
+                         RaisedButton(
+                           child: Text('Complain Events'),
+                           textColor: Colors.white,
+                           color: selectedIndex == 1 ? Colors.pinkAccent : Colors.grey,
+                           onPressed: (){
+                             setState(() {
+                               selectedIndex = 1 ;
+                             });
+                           },
+                         ),
+
+                       ],
+                     ),
+                   ),
+                 ),
+                if(selectedIndex==0)
                  Padding(
                    padding: const EdgeInsets.only(top:10,bottom: 5),
                    child: Center(
                      child: Text("Complain Timeline",style: TextStyle(fontSize:20,fontWeight:FontWeight.bold),),
                    ),
-                 ),
+                 )
+                  else
+                    Padding(
+                  padding: const EdgeInsets.only(top:10,bottom: 5),
+                  child: Center(
+                  child: Text("Complain Events",style: TextStyle(fontSize:20,fontWeight:FontWeight.bold),),
+                  ),
+                  ),
+                 if(selectedIndex==0)
                  Stack(
                  children: <Widget>[
                     Container(
@@ -193,6 +238,87 @@ class _SingleComplainState extends State<SingleComplain> {
 
 
                         ]
+                   )
+                  else
+                   Stack(
+                       children: <Widget>[
+                         Container(
+                           decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10)),
+                               color: Colors.white,boxShadow: [
+                                 BoxShadow(
+                                   color: Colors.black26.withOpacity(0.1),
+                                   spreadRadius: 1,
+                                   blurRadius: 2,
+                                   offset: Offset(0, 3), // changes position of shadow
+                                 ),
+
+                               ],
+                               border: Border.all(color:Colors.grey) ),
+                           width: double.infinity,
+                           height:300,
+                           child: FutureBuilder(
+                             future: _getComplaindata(),
+                             builder: (BuildContext context, AsyncSnapshot snapshot){
+
+                               print(snapshot.data);
+                               if(snapshot.data == null){
+                                 return Container(
+                                     child: Center(
+                                         child: Text("Loading...")
+                                     )
+                                 );
+                               } else {
+                                 return ListView.builder(
+                                   itemCount: snapshot.data.length,
+                                   itemBuilder: (BuildContext context, int index) {
+                                     var c;
+                                     if(snapshot.data[index].status.toString()=="NEW"){
+                                       c=Colors.green;
+                                     };
+                                     if(snapshot.data[index].status.toString()=="PENDING"){
+                                       c=Colors.blue;
+                                     };
+                                     if(snapshot.data[index].status.toString()=="END"){
+                                       c=Colors.red;
+                                     };
+                                     return Container(
+                                       margin: EdgeInsets.only(top:10),
+                                       child: LimitedBox(
+                                         maxHeight: 250,
+                                         child: Container(
+
+                                             child:
+                                             ContainerEvent(ComplaintRemarks:"New Complaint and it is very long long long long long long long long long long long long long sentence")
+                                         ),
+                                       ),
+                                     );
+                                     //   ListTile(
+                                     //   leading: CircleAvatar(
+                                     //     backgroundImage: NetworkImage(
+                                     //         snapshot.data[index].picture
+                                     //     ),
+                                     //   ),
+                                     //   title: Text(snapshot.data[index].name),
+                                     //   subtitle: Text(snapshot.data[index].email),
+                                     //   onTap: (){
+                                     //
+                                     //     Navigator.push(context,
+                                     //         new MaterialPageRoute(builder: (context) => DetailPage(snapshot.data[index]))
+                                     //     );
+                                     //
+                                     //   },
+                                     // );
+                                   },
+                                 );
+                               }
+                             },
+                           ) ,
+
+                         ),
+
+
+
+                       ]
                    ),
                  Padding(
               padding: const EdgeInsets.only(top:10,bottom: 5),

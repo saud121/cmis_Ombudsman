@@ -8,6 +8,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'ComposeComplainFirstPage.dart';
+import 'ComposeComplainpPersonalInfo.dart';
 import 'ComposeNewComplain_page.dart';
 
 
@@ -381,7 +383,7 @@ class _DashboardEmployeeState extends State<DashboardEmployee> {
                 ),
                 FloatingActionButton.extended(
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => NewComplain()));
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => ComposeComplainPersonalInfo()));
                   },
                   icon:Icon(Icons.add_circle, color: Colors.white, size: 29,),
                   label: Text("Create New Complain"),

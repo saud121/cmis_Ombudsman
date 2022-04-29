@@ -46,7 +46,7 @@ class _NewComplainState extends State<NewComplain> {
                     bottom: 20.0
                 ),
                 child: new Text(
-                  Constants_english.ComposeNewComplain,
+                  "Complain Attachment",
                   textAlign: TextAlign.center,
                   style: new TextStyle(
                       fontSize: 20.0,
@@ -79,32 +79,26 @@ class _NewComplainState extends State<NewComplain> {
         body: SingleChildScrollView(
           child: Column(
               children: <Widget>[
-                Align(alignment: Alignment.topLeft,
-                    child: Text(Constants_english.ComposeNote,style: TextStyle(color:Colors.red,fontWeight:FontWeight.bold),textDirection:TextDirection.ltr)),
-                Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(Constants_english.Reliventinfo,style: TextStyle(color:Colors.red,fontWeight:FontWeight.bold),textDirection:TextDirection.ltr)),
-                Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(Constants_english.AttachCninc,style: TextStyle(color:Colors.red,fontWeight:FontWeight.bold),textDirection:TextDirection.ltr)),
-                Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(Constants_english.AttachThumb,style: TextStyle(color:Colors.red,fontWeight:FontWeight.bold),textDirection:TextDirection.ltr)),
-                Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(Constants_english.Attachevidenve,style: TextStyle(color:Colors.red,fontWeight:FontWeight.bold),textDirection:TextDirection.ltr)),
-                Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(Constants_english.AttachAudio,style: TextStyle(color:Colors.red,fontWeight:FontWeight.bold),textDirection:TextDirection.ltr)),
-                Container(
-                  margin: EdgeInsets.only(top:20),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top:10,bottom: 5),
-                    child: Center(
-                      child: Text(Constants_english.Complaintbody,style: TextStyle(fontSize:20,fontWeight:FontWeight.bold),),
-                    ),
-                  ),
+                SizedBox(height: 30,),
+                Padding(
+                  padding: const EdgeInsets.all(3.0),
+                  child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Text("Please Upload your CNIC",style: TextStyle(color:Colors.red,fontWeight:FontWeight.bold),textDirection:TextDirection.ltr)),
                 ),
+                Padding(
+                  padding: const EdgeInsets.all(3.0),
+                  child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Text("Please Upload Picture of your Signature or thumbprint",style: TextStyle(color:Colors.red,fontWeight:FontWeight.bold),textDirection:TextDirection.ltr)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(3.0),
+                  child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Text("Please Upload any evidences if available at the moment",style: TextStyle(color:Colors.red,fontWeight:FontWeight.bold),textDirection:TextDirection.ltr)),
+                ),
+
                 Padding(
                   padding: EdgeInsets.all(10),
                   child: Container(
@@ -191,53 +185,53 @@ class _NewComplainState extends State<NewComplain> {
                                 )),
                           ),
                         ),
-                        Container(
-                          child: Material(
-                            child: InkWell(
-                                splashColor: Colors.blue,
-                                onTap: ()  {
-                                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => recordPage()));
-                                    },
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Container(
-                                    decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10)),border: Border.all(color:Colors.grey)),
-                                    child: Column(
-                                      children: [
-
-                                        Icon(Icons.mic_outlined,size: 50,),
-
-                                        Padding(
-                                          padding: const EdgeInsets.all(3.0),
-                                          child: Text("Audio"),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                )),
-                          ),
-                        ),
+                        // Container(
+                        //   child: Material(
+                        //     child: InkWell(
+                        //         splashColor: Colors.blue,
+                        //         onTap: ()  {
+                        //           Navigator.of(context).push(MaterialPageRoute(builder: (context) => recordPage()));
+                        //             },
+                        //         child: Padding(
+                        //           padding: const EdgeInsets.all(8.0),
+                        //           child: Container(
+                        //             decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10)),border: Border.all(color:Colors.grey)),
+                        //             child: Column(
+                        //               children: [
+                        //
+                        //                 Icon(Icons.mic_outlined,size: 50,),
+                        //
+                        //                 Padding(
+                        //                   padding: const EdgeInsets.all(3.0),
+                        //                   child: Text("Audio"),
+                        //                 )
+                        //               ],
+                        //             ),
+                        //           ),
+                        //         )),
+                        //   ),
+                        // ),
 
                       ],
                     ),
                   ),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white60,
-                    borderRadius: BorderRadius.circular(32),
-                    border: Border.all(color: Colors.black)
-                  ),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintStyle: TextStyle(fontSize: 17),
-                      hintText: 'Write your Complain here.',
-                      suffixIcon: Icon(Icons.edit_note_outlined),
-                      border: InputBorder.none,
-                      contentPadding: EdgeInsets.all(20),
-                    ),
-                  ),
-                ),
+                // Container(
+                //   decoration: BoxDecoration(
+                //     color: Colors.white60,
+                //     borderRadius: BorderRadius.circular(32),
+                //     border: Border.all(color: Colors.black)
+                //   ),
+                //   child: TextField(
+                //     decoration: InputDecoration(
+                //       hintStyle: TextStyle(fontSize: 17),
+                //       hintText: 'Write your Complain here.',
+                //       suffixIcon: Icon(Icons.edit_note_outlined),
+                //       border: InputBorder.none,
+                //       contentPadding: EdgeInsets.all(20),
+                //     ),
+                //   ),
+                // ),
                      if(CnicFile!=null)
                      SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
@@ -335,16 +329,16 @@ class _NewComplainState extends State<NewComplain> {
                       }
                   )
                 else Text("No evidence attached") ,
-              if(Globals.PathToAudioUri!=null)
-                  Text("Audio File Attached")
-                else Text("") ,
-
+              // if(Globals.PathToAudioUri!=null)
+              //     Text("Audio File Attached")
+              //   else Text("") ,
+                SizedBox(height: 50,),
                 FloatingActionButton.extended(
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(builder: (context) => NewComplain()));
                   },
                   icon:Icon(Icons.task_alt, color: Colors.white, size: 29,),
-                  label: Text("Submit Complain"),
+                  label: Text("Submit Complain !"),
                   backgroundColor: Colors.green,
                   tooltip: 'Capture Picture',
                   elevation: 5,
