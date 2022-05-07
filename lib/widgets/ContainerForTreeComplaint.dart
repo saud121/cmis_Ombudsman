@@ -19,15 +19,40 @@ class ContainerTree extends StatelessWidget {
      return Row(
        children: <Widget>[
 
-            Center(
+//             Center(
+//
+//                  //Create Colunm to add more icons for tree
+//                  child:Padding(
+//                      padding: const EdgeInsets.only(left: 2,right: 8),
+//                      child: Icon(Icons.view_week,color:Colors.deepOrangeAccent,)),
+//
+//
+// ),
+       Container(
+         margin: EdgeInsets.only(left:5,right: 3, bottom: 9),
+         child: SizedBox(height: double.infinity,width:8,
+           child: const DecoratedBox(
+             decoration: const BoxDecoration(
+               gradient: LinearGradient(
+                 colors: [
+                   const Color(0xFF00CCFF),
+                   const Color(0xFF3366FF),
 
-                 //Create Colunm to add more icons for tree
-                 child:Padding(
-                     padding: const EdgeInsets.only(left: 2,right: 8),
-                     child: Icon(Icons.view_week,color:Colors.deepOrangeAccent,)),
-
-
-),
+                 ],
+                 begin: const FractionalOffset(0.0, 0.0),
+                 end: const FractionalOffset(1.0, 0.0),
+                 stops: [0.0, 1.0],
+                 tileMode: TileMode.clamp,
+               ),
+               borderRadius: BorderRadius.only(
+                   topLeft: Radius.circular(10),
+                   topRight: Radius.circular(10),
+                   bottomLeft: Radius.circular(10),
+                   bottomRight: Radius.circular(10)
+               ),
+             ),
+           ),),
+       ),
          Flexible(
            child: Column(
                children: <Widget>[
@@ -95,17 +120,18 @@ class ContainerTree extends StatelessWidget {
                            ) //Your widget here,
                        ),
                      ]),
-                 Center(
-                   child: SizedBox(
-                     height: 2,
-                     width: double.infinity,
-                      child: const DecoratedBox(
-                      decoration: const BoxDecoration(
-                      color: Colors.red
-                      ),
-                   ),
-                 ),
-                 )]
+                 // Center(
+                 //   child: SizedBox(
+                 //     height: 2,
+                 //     width: double.infinity,
+                 //      child: const DecoratedBox(
+                 //      decoration: const BoxDecoration(
+                 //      color: Colors.red
+                 //      ),
+                 //   ),
+                 // ),
+                 // )
+               ]
            ),
 
          ),

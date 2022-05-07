@@ -30,10 +30,10 @@ class _SingleComplainState extends State<SingleComplain> {
     for(var u in jsonData){
 
       SingleComplaiInfo singleComplaiInfo = SingleComplaiInfo(u["id"],u["casetype"],u["casetimedate"],u["casedetail"],u["status"],u["casetilldate"], u["email"], u["first_name"], u["last_name"], u["avatar"]);
-      if(Globals.ComplainID == singleComplaiInfo.id) {
-        print("hello masla hall");
+      // if(Globals.ComplainID == singleComplaiInfo.id) {
+      //   print("hello masla hall");
         Complaininfo.add(singleComplaiInfo);
-      }
+      // }
     }
     print(Complaininfo.length);
 
