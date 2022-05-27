@@ -77,6 +77,7 @@ class _NewComplainState extends State<NewComplain> {
             ),
           ),
         body: SingleChildScrollView(
+          
           child: Column(
               children: <Widget>[
                 SizedBox(height: 30,),
@@ -96,7 +97,7 @@ class _NewComplainState extends State<NewComplain> {
                   padding: const EdgeInsets.all(3.0),
                   child: Align(
                       alignment: Alignment.topLeft,
-                      child: Text("Please Upload any evidences if available at the moment",style: TextStyle(color:Colors.red,fontWeight:FontWeight.bold),textDirection:TextDirection.ltr)),
+                      child: Text("Please Upload any evidences if available at the moment in attachment",style: TextStyle(color:Colors.red,fontWeight:FontWeight.bold),textDirection:TextDirection.ltr)),
                 ),
 
                 Padding(
@@ -149,7 +150,7 @@ class _NewComplainState extends State<NewComplain> {
 
                                         Padding(
                                           padding: const EdgeInsets.all(3.0),
-                                          child: Text("Fingerprint"),
+                                          child: Text("Fingerprint/Signature"),
                                         )
                                       ],
                                     ),
@@ -177,7 +178,7 @@ class _NewComplainState extends State<NewComplain> {
 
                                         Padding(
                                           padding: const EdgeInsets.all(3.0),
-                                          child: Text("Evidence"),
+                                          child: Text("Attachments"),
                                         )
                                       ],
                                     ),
